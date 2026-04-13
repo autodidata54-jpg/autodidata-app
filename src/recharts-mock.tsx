@@ -1,0 +1,15 @@
+export const ResponsiveContainer = ({ children }: any) => <div style={{ width: '100%', height: '100%', position: 'relative' }}>{children}</div>;
+export const LineChart = ({ children: _children }: any) => <div style={{ width: '100%', height: '100%', background: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '8px', border: '1px dashed #ccc', color: '#666', fontSize: '12px' }}>Gráfico de Linha</div>;
+export const Line = (_props: any) => null;
+export const XAxis = (_props: any) => null;
+export const YAxis = (_props: any) => null;
+export const Tooltip = (_props: any) => null;
+export const Legend = (_props: any) => null;
+export const PieChart = ({ children: _children }: any) => <div style={{ width: '100%', height: '100%', background: '#f0f0f0', borderRadius: '50%', border: '1px dashed #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#666', fontSize: '12px' }}>Pizza</div>;
+export const Pie = (_props: any) => null;
+export const Cell = (_props: any) => null;
+export const AreaChart = ({ children }: any) => <div>{children}</div>;
+export const Area = (_props: any) => null;
+export const CartesianGrid = (_props: any) => null;
+export const BarChart = (_props: any) => null;
+export const Bar = (_props: any) => null;

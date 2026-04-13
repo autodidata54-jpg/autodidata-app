@@ -1,5 +1,5 @@
 import { Target, CheckCircle2, XCircle, Clock, AlertTriangle, TrendingUp } from 'lucide-react';
-import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { PieChart, LineChart, ResponsiveContainer } from '../components/charts/index.tsx';
 
 const pieData = [
   { name: 'Matemática', value: 35, color: '#3b82f6' },
@@ -104,14 +104,7 @@ export default function Dashboard() {
         <h3 className="font-bold text-gray-900 mb-4">Evolução nos Simulados</h3>
         <div className="h-48 w-full">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={lineData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
-              <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#9ca3af' }} dy={10} />
-              <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#9ca3af' }} />
-              <Tooltip 
-                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                itemStyle={{ color: '#111827', fontWeight: 'bold' }}
-              />
-              <Line type="monotone" dataKey="note" stroke="#3b82f6" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
+            <LineChart data={lineData} dataKeys={['note']}>
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -121,22 +114,7 @@ export default function Dashboard() {
         <h3 className="font-bold text-gray-900 mb-4">Distribuição de Estudo</h3>
         <div className="h-48 w-full flex items-center justify-center">
           <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={pieData}
-                innerRadius={60}
-                outerRadius={80}
-                paddingAngle={5}
-                dataKey="value"
-                stroke="none"
-              >
-                {pieData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip 
-                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-              />
+            <PieChart data={pieData}>
             </PieChart>
           </ResponsiveContainer>
         </div>

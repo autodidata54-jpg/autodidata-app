@@ -1,5 +1,5 @@
 import { Plus, Target } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { LineChart, ResponsiveContainer } from '../components/charts/index.tsx';
 
 const evolutionData = [
   { name: 'Sim. 1', matematica: 60, portugues: 65, historia: 70 },
@@ -27,17 +27,11 @@ export default function Exams() {
         
         <div className="h-60 w-full mt-2">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={evolutionData} margin={{ top: 5, right: 10, left: -25, bottom: 0 }}>
-              <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#9ca3af', fontWeight: 600 }} dy={10} />
-              <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#9ca3af', fontWeight: 600 }} />
-              <Tooltip 
-                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', fontWeight: 'bold' }}
-                itemStyle={{ fontSize: '13px' }}
-              />
-              <Legend iconType="circle" wrapperStyle={{ fontSize: '12px', paddingTop: '10px' }} />
-              <Line type="monotone" dataKey="matematica" name="Matemática" stroke="#3b82f6" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
-              <Line type="monotone" dataKey="portugues" name="Português" stroke="#10b981" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
-              <Line type="monotone" dataKey="historia" name="História" stroke="#f59e0b" strokeWidth={3} dot={{ r: 4, strokeWidth: 2 }} activeDot={{ r: 6 }} />
+            <LineChart 
+                data={evolutionData} 
+                dataKeys={['matematica', 'portugues', 'historia']} 
+                colors={['#3b82f6', '#10b981', '#f59e0b']}
+            >
             </LineChart>
           </ResponsiveContainer>
         </div>

@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { PieChart, ResponsiveContainer } from '../components/charts/index.tsx';
 import { Plus, Trash2, Clock } from 'lucide-react';
 
 const cycleData = [
@@ -75,20 +75,7 @@ export default function Sessions() {
           <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
             <div className="h-40 w-full flex items-center justify-center -mt-2">
               <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={cycleData}
-                    innerRadius={50}
-                    outerRadius={70}
-                    paddingAngle={5}
-                    dataKey="value"
-                    stroke="none"
-                  >
-                    {cycleData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                  <Tooltip contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
+                <PieChart data={cycleData}>
                 </PieChart>
               </ResponsiveContainer>
             </div>
